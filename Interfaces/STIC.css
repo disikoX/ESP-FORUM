@@ -1,0 +1,605 @@
+@import url('colors.css');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background: var(--clr--grisSombre);
+    color: var(--clr--blanc);
+}
+
+a{
+    text-decoration: none;
+    color: var(--clr--blanc);
+}
+
+header{
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+header .headerContainer{
+    width: 95%;
+    height: 100%;
+}
+
+header .navBar{
+    z-index: 5;
+    position: fixed;
+    background-color: var(--clr--grisSombre);
+    height: 40px;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--shadow);
+}
+
+header .navBar .insigne{
+    display: flex;
+    align-items: center;
+    width: 70%;
+}
+
+header .navBar img{
+    height: 40px;
+}
+
+header .navBar svg{
+    fill:  var(--clr--blanc);
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    padding: 1px;
+    transition: all 0.3s ease-in-out;
+}
+
+header .navBar svg:hover{
+    fill: var(--clr--bleuClair);
+}
+
+header .cover{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header .cover img{
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+header .cover .coverVide{
+    height: 40px;
+}
+
+header .cover .coverWidget{
+    color: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    z-index: 2;
+    background: linear-gradient(60deg, rgb(12, 21, 28, 0.6) 60%, transparent 80%);
+}
+
+header .cover .coverWidget h1{
+    width: 70%;
+    font-size: 60px;
+    margin-left: 20px;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+header .cover .coverWidget button{
+    min-width: 140px;
+    height: 40px;
+    margin-right: 20px;
+    border-radius: 5px;
+    border: 2px solid var(--clr--bleuClair);
+    background-color: transparent;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+
+header .cover .coverWidget button:hover{
+    background-color: rgb(12, 21, 28, 0.6);
+    transition: all 0s;
+}
+
+header .cover .coverWidget button:active{
+    background-color: var(--clr--gris--opac);
+}
+
+.coverWidget button p{
+    color: var(--clr--bleuClair);
+    width: 70%;
+}
+
+.coverWidget button svg{
+    fill: var(--clr--bleuClair);
+}
+
+body section{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+section .sectionLeft{
+    width: 80%;
+}
+
+section .animeText{
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    justify-content: space-between;
+}
+
+section .sectionLeft .welcomText{
+    font-size: 13px;
+    color: var(--clr--grisClair);
+    white-space: nowrap;
+    display: flex;
+    animation: animeText 8s linear infinite;
+}
+
+@keyframes animeText {
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+
+section .sectionLeft .forumName{
+    padding-top: 30px;
+    padding-bottom: 40px;
+    font-size: 40px;
+}
+
+section .sectionLeft .searchBar{
+    background-color: var(--clr--gris--opac);
+    width: 100%;
+    height: 40px;
+    display: flex;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--shadow);
+}
+
+.searchBar input{
+    background-color: var(--clr--grisSombre--opac);
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    color: var(--clr--grisClair);
+    outline: none;
+}
+
+.searchBar button{
+    background-color: transparent;
+    height: 100%;
+    width: 50px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.searchBar button:hover{
+    background-color: var(--clr--gris--opac);
+    transition: all 0s;
+}
+
+.searchBar button:active{
+    background-color: var(--clr--gris);
+}
+
+.searchBar button svg{
+    fill: var(--clr--bleuClair);
+}
+
+section .sectionLeft .subject{
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    background: var(--clr--grisMelangeSombre);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: var(--shadow);
+}
+
+.subject .subjectHeader{
+    display: flex;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.subject .subjectHeader img{
+    max-width: 35px;
+    max-height: 35px;
+    min-height: 35px;
+    min-width: 35px;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.subject .subjectHeader h2{
+    max-width: 50%;
+    padding: 5px;
+    border-right: 2px solid var(--clr--bleuClair);
+}
+
+.subject .subjectHeader p{
+    color: var(--clr--grisClair);
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 12px;
+    padding: 5px;
+    transform: translateY(2px);
+}
+
+.subject h1{
+    margin-top: 5px;
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+}
+
+.subject .subjectText{
+    width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-align: justify;
+    color: var(--clr--grisClair);
+}
+
+.subject .commentNbr{
+    color: var(--clr--bleuClair);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 15px;
+}
+
+.commentNbr svg{
+    fill: var(--clr--bleuClair);
+}
+
+.commentNbr p{
+    padding-left: 5px;
+}
+
+section .sectionLeft .creatSubject{
+    background-color: var(--clr--grisMelangeClair);
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: var(--shadow);
+}
+
+.creatSubject h1{
+    padding: 20px;
+    width: 100%;
+}
+
+.creatSubject .creatSubjectContent{
+    width: 100%;
+}
+
+.creatSubject .creatSubjectContentHeader{
+    background: url('../Images/ESP_Statu_contreSoleile.jpg');
+    background-position: bottom;
+    background-size: cover;
+    height: 180px;
+}
+
+.creatSubject .creatSubjectContentHeader div{
+    background-color: rgb(12, 21, 28, 0.6);
+    height: 150px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    color: #fff;
+}
+
+.creatSubjectContentHeader input{
+    height: 40px;
+    border-radius: 5px;
+    background-color: var(--clr--grisMelangeClair);
+    border: 1px solid var(--clr--gris--opac);
+    padding: 20px;
+    color: var(--clr--blanc);
+    font-weight: bolder;
+    box-shadow: var(--shadow);
+    outline: none;
+}
+
+.creatSubject .creatSubjectContentBody{
+    background-color: rgb(12, 21, 28, 0.6);
+    transform: translateY(-30px);
+}
+
+.creatSubject .creatSubjectContentBody div{
+    background-color: var(--clr--grisMelangeClair);
+    width: 100%;
+    padding: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+textarea{
+    resize: none;
+    min-height: 40px;
+    max-height: 200px;
+    border-radius: 7px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: var(--clr--grisMelangeSombre);
+    border: 1px solid var(--clr--gris--opac);
+    color: var(--clr--grisClair);
+    outline: none;
+}
+
+textarea::-webkit-scrollbar{
+    width: auto;
+}
+textarea::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+textarea::-webkit-scrollbar-thumb{
+    background: var(--clr--grisSombre--opac);
+    border-radius: 5px;
+}
+textarea::-webkit-scrollbar-thumb:hover{
+    background: var(--clr--gris);
+}
+
+.creatSubjectContentBody .shareButton{
+    position: absolute;
+    width: 100px;
+    padding: 4px;
+    top: 100%;
+    text-align: center;
+    transform: translateY(-20px);
+    background-color: transparent;
+    color: var(--clr--bleuClair);
+    border-radius: 5px;
+    border: 2px solid var(--clr--bleuClair);
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    fill: var(--clr--bleuClair);
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.creatSubjectContentBody .shareButton:hover{
+    background-color: var(--clr--bleuClair);
+    fill: var(--clr--blanc);
+    color: var(--clr--blanc);
+    transform: translateY(-25px);
+}
+
+.addPhotoEmoji{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-20px);
+    padding: 4px;
+    top: 100%;
+    left: 130px;
+}
+
+.creatSubjectContentBody .addPhotoEmoji button{
+    background-color: transparent;
+    fill: var(--clr--grisClair);
+    border: none;
+    position: relative;
+    text-align: center;
+    height: 100%;
+    margin-right: 3px;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.creatSubjectContentBody .addPhotoEmoji button:hover{
+    transform: translateY(-5px);
+    fill: var(--clr--blanc);
+}
+
+section .sectionLeft .SectionsContainer .oneSection{
+    width: 100%;
+}
+
+.oneSection h1{
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+ 
+.subjectTable{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: var(--clr--grisMelangeSombre);
+    border: 2px solid var(--clr--gris--opac);
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.tableHeader{
+    font-size: 12px;
+    padding-bottom: 5px;
+    color: var(--clr--bleuClair);
+}
+
+.tableBody{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-top: 2px solid var(--clr--gris--opac);
+}
+
+.tableHeader, .tableBody{
+    width: 100%;
+    display: flex;
+    transition: all 0.3s ease-in-out;
+    align-items: center;
+    justify-content: center;
+}
+
+.tableBody:hover{
+    color: var(--clr--bleuClair);
+}
+
+.tableBody:hover{
+    border-top: 2px solid var(--clr--bleuClair);
+}
+
+.subjectRow{
+    display: flex;
+    width: 50%;
+}
+
+.subjectText{
+    display: flex;
+    align-items: center;
+}
+
+.subjectIcone svg{
+    fill: var(--clr--bleuClair);
+    margin-right: 5px;
+    padding: 2px;
+}
+
+.authorRow{
+    width: 30%;
+}
+
+.commentNbrRow{
+    width: 20%;
+}
+
+section .sectionLeft .changePage {
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--shadow);
+}
+
+.changePageLeft,
+.changePageRight {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.changePageLeft svg,
+.changePageRight svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2px;
+    padding: 2px;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    background-color: var(--clr--grisMelangeSombre);
+    fill: var(--clr--gris);
+    transition: all 0.3s ease-in-out;
+    box-shadow: var(--shadow);
+}
+
+.changePageLeft svg:hover,
+.changePageRight svg:hover {
+    fill: var(--clr--bleuClair);
+}
+
+.changePage .numberOfPage {
+    display: flex;
+    overflow-x: hidden;
+    white-space: wrap;
+    overflow-wrap: break-word;
+    color: var(--clr--gris);
+}
+
+.numberOfPage p {
+    padding: 2px;
+    margin-left: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    min-height: 20px;
+    min-width: 20px;
+    max-height: 20px;
+    max-width: 20px;
+    font-size: 12px;
+    transition: all 0.3s ease-in-out;
+}
+
+.numberOfPage p:hover {
+    background-color: var(--clr--gris--opac);
+}
+
+.numberOfPage span {
+    display: flex;
+    overflow-x: hidden;
+    white-space: nowrap;
+}
+
+

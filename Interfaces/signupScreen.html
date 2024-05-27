@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signupScreen</title>
+    <link rel="stylesheet" href="signupScreen.css">
+</head>
+
+<body>
+   
+
+
+    <div class="container" >
+        <div class="containerLeft">
+            <h3>Vous avez déjà un compte?</h3>
+            <a href="loginScreen.html"><button>Se connecter</button></a>
+        </div>
+        <div class="containerRight">
+            <h3>Vous n'avez pas de compte?</h3>
+            <a href="loginScreen.html"><button>S'inscrire</button></a>
+        </div>
+    </div>
+    <form class="inputField" action="../script/signup.php" method="POST">
+        <img src="../Images/ESP_grayBG.png" alt="">
+        <input type="email" placeholder="E-mail"  name="email" required>
+        <input type="text" placeholder="Mention" name="mention" required>
+        <input type="text" placeholder="Niveau" name="niveau" required>
+        <input type="text" placeholder="Pseudo" name="pseudo" required>
+        <input type="password" placeholder="Mot de passe"  id="motDePasse" name="mdp" required>
+        <input type="password" placeholder="Confirmation du mot de passe" id="confirmationMotDePasse" required>
+        <button class="logBtn">S'inscrire</button>
+    </form>
+   
+</body>
+
+</html>

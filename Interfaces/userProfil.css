@@ -1,0 +1,151 @@
+@import url('colors.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+body {
+    background: url('../Images/ESP_Statu_contreSoleile.jpg');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+a {
+    text-decoration: none;
+    color: var(--clr--blanc);
+}
+
+.profilInfoContainer{
+    position: relative;
+    background: linear-gradient(120deg, var(--clr--grisSombre) 50%, var(--clr--gris));
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--clr--blanc);
+    width: 100%;
+    height: 50vh;
+    min-width: 590px;
+    max-width: 700px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: var(--shadow);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.8s ease-in-out;
+}
+
+.infoLeft{
+    padding: 30px;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.userInfo{
+    margin-bottom: 30px;
+}
+
+.userInfo h1{
+    margin-bottom: 10px;
+}
+
+.userInfo span{
+    display: flex;
+    color: var(--clr--grisClair);
+}
+
+.userInfo span .moderateurData{
+    color: var(--clr--blanc);
+}
+
+.userE-mail{
+    margin-bottom: 30px;
+}
+
+.userE-mail h3{
+    margin-bottom: 10px;
+}
+
+.userE-mail p{
+    color: var(--clr--grisClair);
+}
+
+.userWidgets{
+    display: flex;
+}
+
+.userWidgets button{
+    background-color: transparent;
+    border: none;
+    margin-right: 30px;
+    color: var(--clr--grisClair);
+}
+
+.btn{
+    fill: var(--clr--blanc);
+}
+
+.userWidgets svg{
+    transition: all 0.5s ease-in-out;
+}
+
+.userWidgets p{
+    margin-top: 5px;
+    font-size: 12px;
+    transition: all 0.3s ease-in-out;
+}
+
+.userWidgets button:hover svg{
+    transform: translateY(-30%);
+    transition: all 0.3s ease-in-out;
+}
+
+.userWidgets button:hover p{
+    transform: translateY(-40%);
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover{
+    fill: var(--clr--bleuClair);
+    color: var(--clr--bleuClair);
+}
+
+
+.infoRight{
+    padding: 30px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.infoRight div{
+    border: 3px solid var(--clr--bleuClair);
+    z-index: 3;
+    border-radius: 26% 74% 74% 26% / 43% 67% 33% 57%;
+    background: transparent;
+    width: 212px;
+    height: 192px;
+    overflow: hidden;
+    transform:  rotate(-10deg) translateX(-5px) translateY(-10px);
+    box-shadow: var(--shadow);
+}
+
+.infoRight div img{
+    width: 240px;
+    height: 240px;
+    object-fit: cover;
+    transform:  rotate(10deg) translateX(-20px);
+}

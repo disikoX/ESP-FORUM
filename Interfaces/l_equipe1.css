@@ -1,0 +1,183 @@
+@import url('colors.css');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+body{
+    display: flex;
+    background: gray;
+    font-family: sans-serif;
+    color: white;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+body::before{
+    content: '';
+    position: fixed;
+    background: url('../Images/ESP_Statu_contreSoleile.jpg');
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(5px);
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+}
+body::after{
+    content: '';
+    position: fixed;
+    background-color: var(--clr--grisSombre--opac);
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+.phone{
+    z-index: 2;
+    height: 100vh;
+    width: 100%;
+    margin: 30px;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.phone1{
+    max-width: 600px;
+    min-width: 450px;
+    min-height: 400px;
+    width: 95%;
+    height: 45%;
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-top: 20px;
+    background-color: var(--clr--grisSombre--opac);
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.fond1{
+    background: url('../Images/equipeProfileDamien.jpg');
+}
+
+.fond2{
+    background: url('../Images/equipeProfileBrunel.jpg');
+}
+.fond3{
+    background: url('../Images/equipeProfileLucien.jpg');
+}
+
+.phone_sup{
+    background-size: cover;
+    background-position: right;
+    width: 100%;
+    height: 60%;
+}
+
+.full_name{
+    margin-top: 30px;
+    margin-left: 30px;
+    position: absolute;
+    z-index: 20;
+}
+
+.prenom{
+    font-weight: bolder;
+    font-size: 45px;
+}
+
+.nom{
+    font-size: 13px;
+}
+
+
+.names_background1{
+    width: 70%;
+    height: 60%;
+    position: absolute;
+    background-color: var(--clr--grisSombre--opac);
+    clip-path: polygon(0 0, 93% 0, 97% 0%, 51% 100%, 0 100%, 0 100%, 0 100%, 0 0);
+}
+
+.names_background2{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.names_background2:before{
+    left: -48%;
+    bottom: -125%;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 400%;
+    background-color: var(--clr--grisSombre);
+    transform: perspective(500px) rotateX(-55deg);
+    border-radius: 40px;
+}
+
+.phone_inf{
+    display: flex;
+    width: 100%;
+    height: 40%;
+
+}
+
+.contact_info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    word-break: break-all;
+}
+
+.icon{
+	width: 20px;
+    margin-top: 4px;
+}
+
+.contact{
+    font-size: 14px;
+    margin-left: 30px;
+	display: flex;
+    align-items: center;
+}
+.adress{
+	margin-left: 7px;
+	margin-top: 4px;
+}
+.a_propos_sup{
+    bottom: 39%;
+    left: 56.5%;
+    width: 50%;
+    height: 100px;
+    background-color: var(--clr--grisSombre);
+    position: absolute;
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+}
+
+.a_propos{
+    position: absolute;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    border-top-left-radius: 20%;
+    background-color: var(--clr--grisSombre);
+}
+
+.a_propos_char{
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+h2{
+    font-size: 40px;
+}

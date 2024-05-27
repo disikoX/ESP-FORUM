@@ -1,0 +1,179 @@
+@import url("colors.css");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    position: relative;
+    background: url('../Images/ESP_Statu_contreSoleile.jpg');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    color: #fff;
+    background: rgb(12, 21, 28, 0.6);
+    backdrop-filter: blur(5px);
+    display: flex;
+    width: 800px;
+    height: 50%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.container div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.container div h3 {
+    margin: 20px;
+}
+
+.container div button {
+    padding: 10px;
+    width: 120px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+}
+
+.container div button:hover {
+    border: 2px solid var(--clr--bleuClair);
+    background: rgba(73, 72, 77, 0.6);
+    color: var(--clr--bleuClair);
+}
+
+.containerLeft{
+    transform: translateX(-10%);
+}
+
+.containerRight{
+    transform: translateX(10%);
+}
+
+.inputField {
+    background-color: var(--clr--gris);
+    position: absolute;
+    display: flex;
+    width: 400px;
+    height: 70%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(30%);
+    animation-name: apparition;
+    animation-duration: 0.3s;
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.inputField img{
+    position: absolute;
+    display: flex;
+    top: 2%;
+    width: 100px;
+    animation: ESP_animation 0.4s;
+}
+
+@keyframes ESP_animation {
+    0%{
+        transform: translateX(-40%);
+    }
+    60%{
+        transform: translateX(20%);
+    }
+    80%{
+        transform: translateX(-20%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+
+@keyframes apparition {
+    0%{
+        transform: translateX(-30%);
+    }
+    70%{
+        transform: translateX(35%);
+    }
+    90%{
+        transform: translateX(28%);
+    }
+    100%{
+        transform: translateX(30%);
+    }
+}
+
+input, select{
+    width: 80%;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    animation-name: inputAnimation;
+    animation-duration: 0.5s;
+    opacity: 1;
+    outline: none;
+}
+
+input, .logBtn, select{
+    transition: all 0.3s ease-in-out;
+    border: none;
+}
+
+input:hover, .logBtn:hover, select:hover{
+    width: 85%;
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+@keyframes inputAnimation {
+    0%{
+        opacity: 0;
+        transform: translate(-30%);
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.inputField .logBtn{
+    border-radius: 5px;
+    width: 80%;
+    padding: 10px;
+    margin: 5px;
+    background: rgb(12, 21, 28);
+    color: #fff;
+    animation-name: inputAnimation;
+    animation-duration: 0.5s;
+    opacity: 1;
+}
+
+
+.inputField .logBtn button{
+    background: transparent;
+    border: none;
+    color: #fff;
+}
+
+.inputField .logBtn{
+    transition: all 0.2s ease-in-out;
+}
+
+.inputField .logBtn:hover{
+    background-color: var(--clr--bleuClair);
+}

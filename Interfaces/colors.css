@@ -1,0 +1,55 @@
+:root{
+    --clr--bleu: rgb(4, 65, 252);
+    --clr--bleuClair: rgb(74, 149, 207);
+    --clr--blanc: #fff;
+    --clr--grisClair: rgb(190, 190, 190);
+    --clr--gris: rgb(73, 72, 77);
+    --clr--gris--opac: rgba(73, 72, 77, 0.6);
+    --clr--grisSombre: rgb(12, 21, 28);
+    --clr--grisSombre--opac: rgb(12, 21, 28, 0.6);
+    --clr--grisMelangeClair: rgb(48, 51, 57);
+    --clr--grisMelangeSombre: rgb(26, 32,39);
+    --clr--roseRouge: rgb(255, 0, 81);
+    --shadow: 0 14px 28px rgba(0, 0, 0, 0.25),0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.lightTheme{
+    --clr--bleu: rgb(4, 65, 252);
+    --clr--bleuClair: rgb(74, 149, 207);
+    --clr--blanc: rgb(12, 21, 28);
+    --clr--grisClair: rgb(48, 51, 57);
+    --clr--gris: rgb(73, 72, 77);
+    --clr--gris--opac: rgba(204, 200, 221, 0.6);
+    --clr--grisSombre: rgb(216, 216, 216);
+    --clr--grisSombre--opac: rgba(255, 255, 255, 0.6);
+    --clr--grisMelangeClair: rgb(255, 255, 255);
+    --clr--grisMelangeSombre: #fff;
+    --clr--roseRouge: rgb(255, 0, 81);
+    --shadow: 0 14px 28px rgba(0, 0, 0, 0.25),0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+
+#toggleThemeBtn{
+    background-color: transparent;
+    border: none;
+}
+
+
+::-webkit-scrollbar{
+    width: auto;
+}
+
+::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb{
+    background: transparent;
+    border-left: 4px solid var(--clr--roseRouge);
+    transition: all 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: var(--clr--gris--opac);
+}

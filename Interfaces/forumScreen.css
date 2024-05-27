@@ -1,0 +1,291 @@
+@import url('colors.css');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background: var(--clr--grisSombre);
+    color: var(--clr--blanc);
+}
+
+a{
+    text-decoration: none;
+    color: var(--clr--blanc);
+}
+
+header{
+    background: url('../Images/ESP_Statu_contreSoleile.jpg');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    height: 300px;
+    width: 100%;
+    position: relative;
+}
+
+
+header .logoESP{
+    background-color: rgb(12, 21, 28, 0.6);
+    backdrop-filter: blur(5px);
+    height: 30%;
+    transform: translateY(100%);
+    width: 410px;
+    align-items: center;
+    color: #fff;
+    display: flex;
+    padding-left: 5%;
+}
+
+header .logoESP img{
+    height: 60px;
+}
+
+header .navBar{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    top: 100%;
+    transition: background-color 0.5s;
+}
+
+.navBar div{
+    width: 80%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    background: linear-gradient(30deg, transparent, var(--clr--grisMelangeSombre));
+    box-shadow: var(--shadow);
+    border-radius: 5px;
+    padding: 3px;
+    margin-top: 10px;
+}
+
+header .navBar svg{
+    fill:  var(--clr--blanc);
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    padding: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+header .navBar svg:hover{
+    fill: var(--clr--bleuClair);
+}
+
+body section{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+section .sectionLeft{
+    width: 80%;
+}
+
+section .welcomeText{
+    padding-top: 60px;
+    padding-bottom: 40px;
+    font-size: 40px;
+}
+
+section .listForum{
+    display: flex;
+    height: 180px;
+    align-items: center;
+    overflow-x: auto;
+}
+
+section .listForum::-webkit-scrollbar{
+    width: auto;
+}
+section .listForum::-webkit-scrollbar-track{
+    background-color: var(--clr--grisSombre);
+}
+section .listForum::-webkit-scrollbar-thumb{
+    border-top: 4px solid var(--clr--gris--opac);
+    border-left: none;
+    border-radius: 0;
+}
+section .listForum::-webkit-scrollbar-thumb:hover{
+    background: var(--clr--gris--opac);
+}
+
+section .listForum .forum{
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-width: 110px;
+    max-width: 110px;
+    margin-right: 10px;
+    height: 90%;
+    display: flex;
+    align-items: end;
+    transition-property: height;
+    transition: 0.3s ease-in-out;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+section .listForum .forum:hover{
+    height: 100%;
+    color: var(--clr--bleuClair);
+}
+
+section .forum img{
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+section .listForum .forum div{
+    width: 100%;
+    background-color: rgb(12, 21, 28, 0.6);
+    color: #fff;
+    z-index: 2;
+}
+
+section .listForum .forum div p{
+    margin: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+section .sectionLeft .SectionsContainer{
+    width: 100%;
+}
+
+section .sectionLeft .SectionsContainer .oneSection{
+    width: 100%;
+}
+
+.oneSection h1{
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+ 
+.subjectTable{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    background: var(--clr--grisMelangeSombre);
+    width: 100%;
+    border: 2px solid var(--clr--gris--opac);
+    border-radius: 10px;
+    padding: 10px;
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.tableHeader{
+    font-size: 12px;
+    padding-bottom: 5px;
+    color: var(--clr--bleuClair);
+}
+
+.tableBody{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-top: 2px solid var(--clr--gris--opac);
+}
+
+.tableHeader, .tableBody{
+    width: 100%;
+    display: flex;
+    transition: all 0.3s ease-in-out;
+}
+
+.tableBody:hover{
+    color: var(--clr--bleuClair);
+}
+
+.tableBody:hover{
+    border-top: 2px solid var(--clr--bleuClair);
+}
+
+.subjectRow{
+    display: flex;
+    width: 50%;
+}
+
+
+.subjectOrder{
+    color: var(--clr--bleuClair);
+    padding-right: 10px;
+}
+
+.forumRow{
+    width: 30%;
+}
+
+.commentNbrRow{
+    width: 20%;
+}
+
+
+.subjectRow .subjectText, .forumRow, .commentNbrRow, .forum div{
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+body .imageBottom{
+    height: 70vh;
+    min-height: 400px;
+    width: 100%;
+    background: url('/Images/bg_principale.jpg');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.imageBottomContenair{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-top: 30px;
+    background-color: rgb(12, 21, 28, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    text-align: center;
+}
+
+.imageBottom h2{
+    padding: 10px;
+    color: #fff;
+}
+
+.imageBottom p{
+    color: rgb(190, 190, 190);
+}
+
+.imageBottom a{
+    backdrop-filter: blur(3px);
+    color: var(--clr--roseRouge);
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    border:  3px solid var(--clr--roseRouge);
+    transition: all 0.3S ease-in-out;
+}
+
+.imageBottom a:hover{
+    box-shadow: var(--shadow);
+    background-color: rgb(12, 21, 28, 0.6);
+}
+
