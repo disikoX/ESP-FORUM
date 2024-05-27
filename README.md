@@ -1,6 +1,6 @@
 # ESP-FORUM
 
-Ci-joint le repository de notre travaux pratiques de SGBD. 
+Ci-joint le repository de notre travaux pratiques de SGBD (Système de Gestion de Base de Données). 
 
 # Pour accèder au forum suivez les étapes suivantes : 
 
