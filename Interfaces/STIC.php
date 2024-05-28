@@ -14,12 +14,36 @@ if (!$con) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+if (isset($_GET['id'])) {
+    $forum_id = intval($_GET['id']); // Sécurisation de l'entrée
+
+    // Requête SQL pour obtenir le nom du forum
+    $sql = "SELECT nom_forum FROM forums WHERE id_forum = ?";
+    $stmt = $con->prepare($sql);
+    $stmt->bind_param("i", $forum_id);
+    $stmt->execute();
+    $stmt->bind_result($nom_forum);
+    $stmt->fetch();
+
+    // Afficher le nom du forum
+    // if ($nom_forum) {
+    //     echo "Le nom du forum est : " . htmlspecialchars($nom_forum);
+    // } else {
+    //     echo "Aucun forum trouvé avec cet ID.";
+    // }
+
+    // Fermer la requête
+    $stmt->close();
+} else {
+    echo "ID du forum non spécifié.";
+}
+
 if(isset($_POST["subm"])){
     $nom = mysqli_real_escape_string($con, $_POST["nom"]);
     $text = mysqli_real_escape_string($con, $_POST["monText"]);
     $date = date("Y-m-d H:i:s"); // Obtenir la date et l'heure actuelle
 
-    $sql = "INSERT INTO sujets (nom_sujet, text_sujet, date_sujet,lien,id_user) VALUES ('$nom', '$text', '$date','','$id_user')";
+    $sql = "INSERT INTO sujets (nom_sujet, text_sujet, date_sujet,lien,id_user,id_forum) VALUES ('$nom', '$text', '$date','','$id_user','$forum_id')";
 
     if (mysqli_query($con, $sql)) {
         $message = "Nouveau sujet créé avec succès";
@@ -30,15 +54,30 @@ if(isset($_POST["subm"])){
     $sql_1 = "SELECT * FROM forums";
 
 
-    $result_sql_1 = $con->query($sql_1);
+    // $result_sql_1 = $con->query($sql_1);
                                     
-    $forum_id = "";
-    if ($result_sql_1->num_rows > 0){
-        while($sujet = $result_sql_1->fetch_assoc()) {
-                 $forum_id = $sujet['id_forum'];
-            $forum_name = htmlspecialchars($sujet['nom_forum']);
-            $forum_url = "STIC.php?id=$forum_id";
-        }
+    // $forum_id = "";
+    // if ($result_sql_1->num_rows > 0){
+    //     while($sujet = $result_sql_1->fetch_assoc()) {
+    //              $forum_id = $sujet['id_forum'];
+    //         $forum_name = htmlspecialchars($sujet['nom_forum']);
+    //         $forum_url = "STIC.php?id=$forum_id";
+    //     }
+    // }
+    if (isset($_GET['id'])) {
+        $forum_id = intval($_GET['id']); 
+    
+        $sql = "SELECT nom_forum FROM forums WHERE id_forum = ?";
+        $stmt = $con->prepare($sql);
+        $stmt->bind_param("i", $forum_id);
+        $stmt->execute();
+        $stmt->bind_result($nom_forum);
+        $stmt->fetch();
+    
+    
+        $stmt->close();
+    } else {
+        echo "ID du forum non spécifié.";
     }
 
 
@@ -82,10 +121,38 @@ if(isset($_POST["subm"])){
                 </div>
             </div>
             <div class="cover">
-                <img src="../Images/electro_microProcesseur2.jpg" alt="">
+            <?php $con = mysqli_connect("localhost", "root", "0000", "forum");
+            if (!$con) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
+
+         
+            $img =mysqli_query($con,"SELECT image_path FROM forums WHERE id_forum = $forum_id
+            ");
+
+            if ($img) {
+                while ($img_1 = mysqli_fetch_assoc($img)) {
+                    echo '<img src="data:image/png;base64,'.base64_encode( $img_1['image_path'] ).'"/>';
+                }
+            }
+                    ?>
                 <div class="coverVide"></div>
                 <div class="coverWidget">
-                    <h1>STIC</h1>
+                <?php $con = mysqli_connect("localhost", "root", "0000", "forum");
+            if (!$con) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
+
+          
+            $img =mysqli_query($con,"SELECT nom_forum FROM forums WHERE id_forum = $forum_id
+            ");
+
+            if ($img) {
+                while ($img_1 = mysqli_fetch_assoc($img)) {
+                    echo " <h1>".$img_1["nom_forum"]."</h1>";
+                }
+            }
+                    ?>
                     <a href="#creatSubject">
                         <button>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -106,14 +173,30 @@ if(isset($_POST["subm"])){
                 <p class="welcomText">Bienvenue dans le forum dédier au étudiant dans le parcours STIC.&nbsp;&nbsp;</p>
                 <p class="welcomText">Bienvenue dans le forum dédier au étudiant dans le parcours STIC.&nbsp;&nbsp;</p>
             </span>
-            <h1 class="forumName">FORUM STIC</h1>
+            <h1 class="forumName">Forum <?php $con = mysqli_connect("localhost", "root", "0000", "forum");
+            if (!$con) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
+
+          
+            $img =mysqli_query($con,"SELECT nom_forum FROM forums WHERE id_forum = $forum_id
+            ");
+
+            if ($img) {
+                while ($img_1 = mysqli_fetch_assoc($img)) {
+                    echo "{$img_1['nom_forum']}";
+                }
+            }
+                    ?></h1>
             <?php
-            $comments_sql = "SELECT u.image_user,s.id_sujet, s.nom_sujet, s.text_sujet, s.date_sujet, u.pseudo_user, COUNT(c.id_coms) AS nb_coms
+            $comments_sql = "SELECT u.image_user,s.id_sujet, s.nom_sujet, s.text_sujet, s.date_sujet, u.pseudo_user, COUNT(c.id_coms) AS nb_coms, s.id_forum
             FROM sujets s
             JOIN utilisateurs u ON u.id_user = s.id_user
             LEFT JOIN commentaires c ON c.id_sujet = s.id_sujet 
+            WHERE id_forum = $forum_id
             GROUP BY s.id_sujet, s.nom_sujet, s.text_sujet, s.date_sujet, u.pseudo_user
             ORDER BY nb_coms DESC
+
             ";
     
             $sujet_id = "";
@@ -226,7 +309,7 @@ if(isset($_POST["subm"])){
     <footer class="footer">
         <div class="footer1">
             <span>
-                <img src="/Images/rejoignerNous.png" alt="">
+                <img src="../Images/rejoignerNous.png" alt="">
             </span>
             <div class="iconMedia">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">

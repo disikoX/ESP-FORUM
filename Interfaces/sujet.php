@@ -61,7 +61,9 @@ if (!$con) {
             }
 
          
-            $img =mysqli_query($con,"SELECT image_path FROM forums LIMIT 1
+            $img =mysqli_query($con,"SELECT f.image_path, s.id_sujet, f.id_forum, s.id_sujet
+            FROM sujets s
+            JOIN forums f ON s.id_forum = f.id_forum WHERE id_sujet = $sujet_id 
             ");
 
             if ($img) {
@@ -72,7 +74,21 @@ if (!$con) {
                     ?>
                 <div class="coverVide"></div>
                 <div class="coverWidget">
-                    <h1>STIC</h1>
+                <?php $con = mysqli_connect("localhost", "root", "0000", "forum");
+            if (!$con) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
+
+          
+            $img =mysqli_query($con,"SELECT f.nom_forum, f.id_forum, s.id_forum, s.id_sujet FROM sujets s JOIN
+        forums f  ON s.id_forum = f.id_forum WHERE s.id_sujet = $sujet_id
+            ");
+
+            if ($img) {
+                while ($img_1 = mysqli_fetch_assoc($img)) {
+                    echo " <h1>".$img_1["nom_forum"]."</h1>";
+                }
+            } ?>
                 </div>
             </div>
         </div>
@@ -80,16 +96,36 @@ if (!$con) {
     <section>
             <div class="sectionLeft">
                 <span class="animeText">
-                    <p class="welcomText">Bienvenue dans le forum dédier au étudiant dans le parcours STIC.&nbsp;&nbsp;</p>
-                    <p class="welcomText">Bienvenue dans le forum dédier au étudiant dans le parcours STIC.&nbsp;&nbsp;</p>
-                    <p class="welcomText">Bienvenue dans le forum dédier au étudiant dans le parcours STIC.&nbsp;&nbsp;</p>
-                    <p class="welcomText">Bienvenue dans le forum dédier au étudiant dans le parcours STIC.&nbsp;&nbsp;</p>
+                    <p class="welcomText">Bienvenu sur les forums dédiés aux étudiant de l'ESP Antsiranana.&nbsp;&nbsp;</p>
+                    <p class="welcomText">Bienvenu sur les forums dédiés aux étudiant de l'ESP Antsiranana.&nbsp;&nbsp;</p>
+                    <p class="welcomText">Bienvenu sur les forums dédiés aux étudiant de l'ESP Antsiranana.&nbsp;&nbsp;</p>
+                    <p class="welcomText">Bienvenu sur les forums dédiés aux étudiant de l'ESP Antsiranana.&nbsp;&nbsp;</p>
                 </span>
 
                 <div class="widgets">
                     <div class="colorCover">
                         <div class="widgetsTop">
-                            <a href="STIC.php">
+                                            
+                                            <?php
+                                    $sql_top_sujets = "SELECT s.lien, s.id_sujet, s.nom_sujet, f.nom_forum,f.id_forum
+                                    FROM sujets s
+                                    JOIN forums f ON s.id_forum = f.id_forum WHERE id_sujet = $sujet_id";
+                    
+                                        $result_top_sujets = $con->query($sql_top_sujets);
+                                                    
+                                        $forum_id = "";
+                                        if ($result_top_sujets->num_rows > 0) {
+                                            while($sujet = $result_top_sujets->fetch_assoc()) {
+                                        $forum_id = $sujet['id_forum'];
+                                                
+                                                
+                                                $forum_name = htmlspecialchars($sujet['nom_forum']);
+                                                $forum_url = "STIC.php?id=$forum_id";
+
+                                                echo "<a href='STIC.php?id=$forum_id#creatSubject''" . $sujet['lien'] . "' class='tableBody'>";
+                                            }
+                                        }
+                                                ?>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                     <path d="M19 15v-3h-2v3h-3v2h3v3h2v-3h3v-2h-.937zM4 7h11v2H4zm0 4h11v2H4zm0 4h8v2H4z" />
                                 </svg>
@@ -97,7 +133,7 @@ if (!$con) {
                             </a>
                         </div>
                         <div class="widgetsBottom">
-                            <a href="forumScreen.html">
+                            <a href="forumScreen.php">
                                 <span></span>
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
@@ -157,7 +193,7 @@ if (!$con) {
                         JOIN sujets s ON s.id_sujet = c.id_sujet
                         JOIN utilisateurs u ON u.id_user = c.id_user 
                         WHERE c.id_sujet = ?
-                        ORDER BY c.date_coms DESC
+                        ORDER BY c.date_coms ASC
                         ";
                 
                 $stmt = $con->prepare($comments_sql);
@@ -211,7 +247,7 @@ if (!$con) {
 
                         if ($stmt->execute()) {
                             echo "<script>
-                            window.location.href='sujet.php?id=$sujet_id?>';
+                            window.location.href='sujet.php?id=$sujet_id';
                             </script>";
                         } else {
                             echo "Erreur lors de l'ajout du commentaire: " . $stmt->error;
