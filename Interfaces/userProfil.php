@@ -1,7 +1,7 @@
 <?php
 session_start(); 
+
 if(isset($_SESSION['id_user'])) {
-   
     $id_user = $_SESSION['id_user'];
 }
 
@@ -30,8 +30,7 @@ $datas = mysqli_query($con, "SELECT * FROM utilisateurs ");
             <div class="userInfo">
             <?php
                     // Requête SQL pour sélectionner les données
-                    $sql = "SELECT pseudo_user FROM utilisateurs WHERE id_user = $id_user
-                    ";
+                    $sql = "SELECT * FROM utilisateurs  WHERE id_user = $id_user";
                                     $result = mysqli_query($con, $sql);
 
                                     // Vérification des résultats
@@ -47,8 +46,7 @@ $datas = mysqli_query($con, "SELECT * FROM utilisateurs ");
                     <p class="moderateurData">
                     <?php
                     
-                     $sql = "SELECT niveau_user FROM utilisateurs WHERE id_user = $id_user
-                     ";
+                     $sql = "SELECT niveau_user FROM utilisateurs WHERE id_user = $id_user";
                      $result = mysqli_query($con, $sql);
 
                      // Vérification des résultats
@@ -65,8 +63,7 @@ $datas = mysqli_query($con, "SELECT * FROM utilisateurs ");
                 <span class="parcUser">
                 <p> Qui fait carrière dans le parcours&nbsp;  </p>
                     <?php
-                     $sql = "SELECT mention_user FROM utilisateurs WHERE id_user = $id_user
-                     ";
+                     $sql = "SELECT mention_user FROM utilisateurs WHERE id_user = $id_user";
 
                      $result = mysqli_query($con, $sql);
 
@@ -84,8 +81,7 @@ $datas = mysqli_query($con, "SELECT * FROM utilisateurs ");
             <div class="userE-mail">
             <h3> E-mail: </h3>
                 <p> <?php
-                     $sql = "SELECT * FROM utilisateurs WHERE id_user = $id_user
-                     ";
+                     $sql = "SELECT * FROM utilisateurs WHERE id_user = $id_user";
 
                      $result = mysqli_query($con, $sql);
 
@@ -114,8 +110,7 @@ $datas = mysqli_query($con, "SELECT * FROM utilisateurs ");
         <div class="infoRight">
             <div>
             <?php
-                     $sql = "SELECT * FROM utilisateurs WHERE id_user = $id_user
-                     ";
+                     $sql = "SELECT * FROM utilisateurs WHERE id_user = $id_user";
 
                      $result = mysqli_query($con, $sql);
 

@@ -6,6 +6,13 @@ session_start();
 if(isset($_SESSION['id_user'])) {
     // Attribuer la valeur de la session à la variable $id_user
     $id_user = $_SESSION['id_user'];
+}else {
+    // Afficher un message d'erreur si le pseudo ou le mot de passe est incorrect
+    echo '<script>
+           alert("Veuillez vous connectez ");
+           window.location.href="../Interfaces/loginScreen.html";
+          </script>';
+   
 }
 
 
@@ -333,7 +340,7 @@ if(isset($_POST["subm"])){
                 </svg>
             </div>
             <div class="links">
-                <a href="forumScreen.html#welcomeTextFromFirstPage">Accueil</a>
+                <a href="forumScreen.php">Accueil</a>
                 <a href="a_propos.html">A propos</a>
                 <a href="l_equipe1.html">L'équipe</a>
                 <a href="regles.html">Règles</a>

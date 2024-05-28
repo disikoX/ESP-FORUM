@@ -27,7 +27,7 @@ $datas = mysqli_query($con, "SELECT * FROM forums");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="forumScreen.css">
+    <link rel="stylesheet" href="./forumScreen.css">
     <link rel="stylesheet" href="footer.css">
     <script src="theme.js"></script>
 </head>
@@ -62,12 +62,12 @@ $datas = mysqli_query($con, "SELECT * FROM forums");
         <div class="sectionLeft">
             <h1 class="welcomeText" id="welcomeTextFromFirstPage">Bienvenu sur les forums dédiés aux étudiant de l'ESP Antsiranana</h1>
             <h1 class="title">FORUMS</h1>
-            <?php
+                            <?php
 
-$datas = mysqli_query($con, "SELECT * FROM forums");
+                $datas = mysqli_query($con, "SELECT * FROM forums");
 
 
-?>
+                ?>
             <div class="listForum">
                     <?php
                     if ($datas) {
@@ -90,7 +90,7 @@ $datas = mysqli_query($con, "SELECT * FROM forums");
                     }
                   
                     ?>
-                </div>
+            </div>
             <div class="SectionsContainer">
                 <main class="oneSection">
                     <h1>TOP SUJET</h1>
@@ -143,6 +143,10 @@ $datas = mysqli_query($con, "SELECT * FROM forums");
                         ?> 
                     </ul>        
                 </main>
+            </div>
+        </div>
+    </section>
+                        
     <div class="imageBottom">
         <div class="imageBottomContenair">
             <h2>Encore le bienvenu sur les forums de l'ESP-D</h2>
