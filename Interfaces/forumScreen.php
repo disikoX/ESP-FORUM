@@ -151,7 +151,6 @@ $datas = mysqli_query($con, "SELECT * FROM forums");
             <P>Créez des sujets sur vos passions, vos idées ou vos préoccupations.</P>
             <P>Rejoignez la communauté et contribuez à un forum riche et bénéfique pour tous !</P>
             <p>N'attendez plus, créez votre premier sujet dès aujourd'hui !</p>
-            <a href="STIC.php">Créer un nouveau Sujet</a>
         </div>
     </div>
     <footer>
