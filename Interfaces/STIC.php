@@ -245,7 +245,20 @@ if(isset($_POST["subm"])){
                     <div class="creatSubjectContent">
                         <div class="creatSubjectContentHeader">
                             <div>
-                                <h3>Votre sujet sera placer dans le Forum STIC</h3>
+                                <h3>Votre sujet sera placer dans le Forum <?php $con = mysqli_connect("localhost", "root", "0000", "forum");
+            if (!$con) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
+
+          
+            $img =mysqli_query($con,"SELECT nom_forum FROM forums WHERE id_forum = $forum_id
+            ");
+
+            if ($img) {
+                while ($img_1 = mysqli_fetch_assoc($img)) {
+                    echo "{$img_1["nom_forum"]}";
+                }
+            } ?></h3>
                                 <input type="text" name="nom"  placeholder="Saisir le titre du sujet" required>
                             </div>
                         </div>
@@ -283,7 +296,7 @@ if(isset($_POST["subm"])){
                        GROUP BY s.id_sujet, s.nom_sujet, f.nom_forum, c.nb_coms
                        ORDER BY c.nb_coms DESC
                        
-                       LIMIT 3";
+                       ";
     
                         $result_top_sujets = $con->query($sql_top_sujets);
                                     
