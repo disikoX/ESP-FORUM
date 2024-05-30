@@ -25,18 +25,21 @@ body {
     background: rgb(12, 21, 28, 0.6);
     backdrop-filter: blur(5px);
     display: flex;
-    width: 800px;
+    width: 880px;
+    max-width: 800px;
     height: 50%;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    overflow: hidden;
 }
 
-.container div{
+.container div {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    flex-wrap: wrap;
+    width: 400px;
     flex-direction: column;
 }
 
@@ -59,12 +62,12 @@ body {
     color: var(--clr--bleuClair);
 }
 
-.containerLeft{
+.containerLeft {
     transition: all 0.7s ease-in;
     transform: translateX(-10%);
 }
 
-.containerRight{
+.containerRight {
     transform: translateX(10%);
 }
 
@@ -73,6 +76,7 @@ body {
     position: absolute;
     display: flex;
     width: 400px;
+    max-width: 400px;
     height: 70%;
     flex-direction: column;
     justify-content: center;
@@ -80,32 +84,36 @@ body {
     transform: translateX(-30%);
     animation-name: apparition;
     animation-duration: 0.3s;
-	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),0 10px 10px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-.inputField img{
+.inputField img {
     position: absolute;
     display: flex;
     top: 0%;
-    width: 40vh;
+    width: 40vw;
+    max-width: 40vh;
 }
 
 @keyframes apparition {
-    0%{
+    0% {
         transform: translateX(30%);
     }
-    70%{
+
+    70% {
         transform: translateX(-35%);
     }
-    90%{
+
+    90% {
         transform: translateX(-28%);
     }
-    100%{
+
+    100% {
         transform: translateX(-30%);
     }
 }
 
-input{
+input {
     width: 80%;
     padding: 10px;
     margin: 5px;
@@ -116,28 +124,30 @@ input{
     z-index: 2;
 }
 
-input, .logBtn{
+input,
+.logBtn {
     transition: all 0.3s ease-in-out;
     border: none;
 }
 
-input:hover, .logBtn:hover{
+input:hover,
+.logBtn:hover {
     width: 85%;
-	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),0 10px 10px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 @keyframes inputAnimation {
-    0%{
+    0% {
         opacity: 0;
         transform: translate(-30%);
     }
-    100%{
+
+    100% {
         opacity: 1;
     }
 }
 
-.inputField .logBtn{
-    color: #ffffff;
+.inputField .logBtn {
     border-radius: 5px;
     width: 80%;
     padding: 10px;
@@ -148,21 +158,21 @@ input:hover, .logBtn:hover{
     opacity: 1;
 }
 
-.inputField .logBtn button{
+.inputField .logBtn button {
     background: transparent;
     border: none;
     color: #fff;
 }
 
-.inputField .logBtn{
+.inputField .logBtn {
     transition: all 0.2s ease-in-out;
 }
 
-.inputField .logBtn:hover{
+.inputField .logBtn:hover {
     background-color: var(--clr--bleuClair);
 }
 
-.mdpForgot{
+.mdpForgot {
     color: var(--clr--bleuClair);
     animation-name: inputAnimation;
     animation-duration: 0.5s;
@@ -170,6 +180,64 @@ input:hover, .logBtn:hover{
     transition: all 0.2s ease-in-out;
 }
 
-.mdpForgot:hover{
+.mdpForgot:hover {
     color: rgb(12, 21, 28);
+}
+
+@media(max-width:600px) {
+    body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .container {
+        color: #fff;
+        background: rgb(12, 21, 28, 0.6);
+        backdrop-filter: blur(5px);
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        border-radius: 0px;
+        padding-bottom: 100px;
+        transform: translateY(-50px);
+        top: 0;
+        position: absolute;
+        justify-content: start;
+    }
+
+    .inputField {
+        background: var(--clr--gris);
+        position: absolute;
+        display: flex;
+        min-width: 100vw;
+        top: 100%;
+        transform: translateY(-100%);
+        animation-name: none;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        overflow: hidden;
+    }
+
+    .inputField img {
+        position: absolute;
+        display: flex;
+        top: -5%;
+        width: 30vh;
+    }
+
+    .containerLeft {
+        transition: all 0s;
+        transform: translateX(0%);
+        scale: 0;
+    }
+    
+    .containerRight {
+        transform: translateX(0%);
+    }
+    
 }
